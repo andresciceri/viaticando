@@ -1,1 +1,199 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('./assets/css/AdminLTE.css');
+@import url('./assets/css/skins/_all-skins.css');
+@import url('./assets/css/lemur-skin.css');
+
+body a {
+	cursor: pointer;
+}
+.top-options-nav {
+	margin-right: 100px;
+}
+
+.main-header {
+	position: relative;
+	width: 100%;
+}
+
+body .ui-state-active, body .ui-state-highlight {
+	background-color: #3c8dbc;
+}
+
+body .ui-datatable thead th.ui-state-active {
+	background-color: #3c8dbc;
+	border-color: #367fa9;
+}
+
+body .ui-widget, body .ui-widget .ui-widget, body .ui-widget input, body .ui-widget select, body .ui-widget textarea, body .ui-widget button {
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body .ui-datatable .ui-datatable-header, body .ui-datatable .ui-datatable-footer {
+	padding: 5px;
+}
+
+body .ui-paginator .ui-paginator-pages .ui-paginator-page:hover.ui-state-active {
+	background-color : #3c8dbc;
+}
+
+body .ui-paginator .ui-paginator-first, body .ui-paginator .ui-paginator-prev, body .ui-paginator .ui-paginator-next, body .ui-paginator .ui-paginator-last {
+	color : #3c8dbc;	
+}
+
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+	background-color: #3c8dbc;
+	border-color: #3c8dbc;
+}
+
+body p-radiobutton label{
+	font-weight: 400;
+}
+
+body .ui-button {
+	background-color: #3c8dbc;
+	padding: 0.25em; 
+}
+
+body .ui-button:focus, body .ui-button:enabled:hover {
+	background-color: #3c8dbc;
+}
+
+body .autoCompleteList button{
+	display: none;
+}
+
+body .ui-datatable-tablewrapper table tbody tr td {
+	overflow: visible !important;
+}
+
+body .ui-listbox .ui-listbox-item.ui-state-highlight {
+	background-color: #3c8dbc;
+}
+
+body .box .overlay, .overlay-wrapper .overlay, .box .loading-img, .overlay-wrapper .loading-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active {
+	background-color: #3c8dbc;
+	border-color: #3c8dbc;
+}
+
+body .ui-datatable .ui-datatable-data tr.ui-datatable-even.ui-state-highlight {
+	background-color: #3c8dbc;
+	border-color: #ffffff;	
+}
+
+body .ui-datatable .ui-datatable-data tr.ui-state-highlight {
+	border-color: #ffffff;	
+}
+
+body .ui-chkbox .ui-chkbox-box.ui-state-active {
+	background-color: #00a65a;
+	border-color: #00a65a;
+}
+
+body .ui-inputtext {
+	line-height: inherit;
+	border-radius: 0;
+}
+
+body .ui-corner-all  {
+	border-radius: 0;
+}
+
+body .box.box-primary {
+	overflow: hidden;
+}
+
+body .corner-ribbon{
+  width: 200px;
+  background: #e43;
+  position: absolute;
+  top: 25px;
+  left: -50px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 1px;
+  color: #f0f0f0;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  z-index: 800;
+}
+
+body .corner-ribbon.shadow{
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+}
+
+body .corner-ribbon.top-right{
+  top: 25px;
+  right: -50px;
+  left: auto;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+body .packsListHeaderNotShipped {
+
+}
+
+body .packsListHeaderNotShipped .ui-datalist-header{
+	background-color: #D9F3F9;
+	border-color: #F7F7F7
+}
+
+body .packsListHeaderNotShipped .ui-datalist-content.ui-widget-content{
+	background-color: #FAFAFA;
+	border-color: #F7F7F7;
+	height: 480px;
+	padding: 5px;
+}
+
+body .packsListHeaderShipped .ui-datalist-header{
+	background-color: #FAF8CA;
+	border-color: #F7F7F7
+}
+
+body .packsListHeaderShipped .ui-datalist-content.ui-widget-content{
+	background-color: #FAFAFA;
+	border-color: #F7F7F7;
+	height: 480px;
+	padding: 5px;
+}
+
+body .packsListHeaderDelivered .ui-datalist-header{
+	background-color: #D4F1B4;
+	border-color: #F7F7F7
+}
+
+body .packsListHeaderDelivered .ui-datalist-content.ui-widget-content{
+	background-color: #FAFAFA;
+	border-color: #F7F7F7;
+	height: 480px;
+	padding: 5px;
+}
+
+body .packsListHeaderNotShipped .ui-paginator{
+	background-color: #FAFAFA;
+	border-color: #F7F7F7
+}
+
+body .packsListHeaderShipped .ui-paginator{
+	background-color: #FAFAFA;
+	border-color: #F7F7F7
+}
+
+body .packsListHeaderDelivered .ui-paginator{
+	background-color: #FAFAFA;
+	border-color: #F7F7F7
+}
+
+body .ui-datalist-content.ui-widget-content .rowPackDataList {
+	background-color: #ffffff;
+	margin-top: 5px;
+	cursor: pointer;
+}

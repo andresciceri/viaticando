@@ -1,0 +1,14 @@
+.background-login {
+	background-image: url('../images/backgrounds/airport.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	padding: 10% 0px;
+}
+
+.login-box, .register-box {
+	margin: 0% auto;
+	background-color: white;
+	-webkit-box-shadow: 11px 17px 46px -1px rgba(94,93,94,1);
+	-moz-box-shadow: 11px 17px 46px -1px rgba(94,93,94,1);
+	box-shadow: 11px 17px 46px -1px rgba(94,93,94,1);
+}

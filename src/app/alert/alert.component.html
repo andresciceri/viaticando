@@ -1,0 +1,19 @@
+<!-- Modal -->
+<div class="modal fade in" *ngIf="message" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  [ngStyle]="{'display': isVisible}" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+      </div>
+      <div class="modal-body">
+        {{message.text}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn " data-dismiss="modal" (click)="closeModal()" [ngClass]="{'btn-danger': message.type == 'error', 'btn-success': message.type == 'success', 'btn-warning': message.type == 'warning'}">Cerrar</button>
+        <button type="button" *ngIf="message.link" data-dismiss="modal" (click)="goDetail()" class="btn btn-primary">Ver Detalle</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
