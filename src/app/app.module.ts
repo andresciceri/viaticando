@@ -5,7 +5,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
 import { apipaths } from './app.apis';
-
+import { ProgressBarModule, DataTableModule,SharedModule, 
+          InputMaskModule, RadioButtonModule, AutoCompleteModule, 
+            ListboxModule, TabViewModule, CalendarModule, ChartModule,
+              DialogModule, DataListModule} from 'primeng/primeng';
+import { FileUploadModule } from 'ng2-file-upload';
 import { AlertService } from './alert/alert.service';
 import { AuthGuard } from './login/auth.guard';
 import { LoginService } from './login/login.service';
@@ -15,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { RouterLayerComponent } from './router-layer/router-layer.component';
 import { AlertComponent } from './alert/alert.component';
+import { MenuMainComponent } from './menu-main/menu-main.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +27,29 @@ import { AlertComponent } from './alert/alert.component';
     LoginComponent,
     MainComponent,
     RouterLayerComponent,
-    AlertComponent
+    AlertComponent,
+    MenuMainComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    ProgressBarModule,
+    DataTableModule,
+    SharedModule,
+    InputMaskModule,
+    RadioButtonModule,
+    FileUploadModule,
+    AutoCompleteModule,
+    ReactiveFormsModule,
+    ListboxModule,
+    TabViewModule,
+    CalendarModule,
+    ChartModule,
+    DialogModule,
+    DataListModule
   ],
   providers: [
   AuthGuard,

@@ -1,0 +1,11 @@
+.progress-bar-show {
+	display: block;
+}
+
+.progress-bar-none {
+	display: none;
+}
+
+.main-sidebar {
+	position: fixed;
+}

@@ -10,17 +10,17 @@ const appRoutes: Routes = [
 	{
 		path: '',
     	component: RouterLayerComponent,
-    	canActivate: [AuthGuard],
+    	canActivate: [],
     	children: [
     		{
 	      		path: '',
 	      		component: MainComponent,
-	      		canActivate: [AuthGuard]
+	      		canActivate: []
     		},
     		{
 		      path: 'main',
 		      component: MainComponent,
-		      canActivate: [AuthGuard]
+		      canActivate: []
 		    }
     	]
     },
