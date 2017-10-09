@@ -20,6 +20,9 @@ import { MainComponent } from './main/main.component';
 import { RouterLayerComponent } from './router-layer/router-layer.component';
 import { AlertComponent } from './alert/alert.component';
 import { MenuMainComponent } from './menu-main/menu-main.component';
+import { TravelCreateComponent } from './travel-create/travel-create.component';
+import { TravelListComponent } from './travel-list/travel-list.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { MenuMainComponent } from './menu-main/menu-main.component';
     MainComponent,
     RouterLayerComponent,
     AlertComponent,
-    MenuMainComponent
+    MenuMainComponent,
+    TravelCreateComponent,
+    TravelListComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,

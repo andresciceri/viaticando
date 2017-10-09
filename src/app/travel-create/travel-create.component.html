@@ -1,0 +1,32 @@
+<section class="content-header">
+	<h1>
+		<i class="fa fa-plane"></i> Crear un nuevo viaje
+	</h1>
+	<ol class="breadcrumb">
+		<li><a routerLink="/"><i class="fa fa-plane"></i> Inicio</a></li>
+		<li><a routerLink="/travel-list">Viajes</a></li>
+		<li class="active">Crear</li>
+	</ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+	<div class="col-md-12">
+		<div class="box box-success">
+			<div class="box-header with-border">
+              <h3 class="box-title">Nuevo Viaje</h3>
+            </div>
+            <form class="form-horizontal" (ngSubmit)="onCreateTravel()" #travelForm="ngForm" method="post">
+            	<div class="box-body">
+            		<div class="form-group">
+	                	<label for="inputCompany" class="col-sm-2 control-label">Asignado a:</label>
+	                	<div class="col-sm-7">
+		                    <input type="text" class="form-control" id="inputCompany" placeholder="Nombre de la compañía">
+		                </div>
+	                </div>
+            	</div>
+            </form>
+        </div>
+    </div>
+
+</section>
