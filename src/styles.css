@@ -50,12 +50,12 @@ body p-radiobutton label{
 }
 
 body .ui-button {
-	background-color: #3c8dbc;
+	background-color: #00a65a;
 	padding: 0.25em; 
 }
 
 body .ui-button:focus, body .ui-button:enabled:hover {
-	background-color: #3c8dbc;
+	background-color: #00a65a;
 }
 
 body .autoCompleteList button{
@@ -67,7 +67,7 @@ body .ui-datatable-tablewrapper table tbody tr td {
 }
 
 body .ui-listbox .ui-listbox-item.ui-state-highlight {
-	background-color: #3c8dbc;
+	background-color: #00a65a;
 }
 
 body .box .overlay, .overlay-wrapper .overlay, .box .loading-img, .overlay-wrapper .loading-img {
@@ -79,12 +79,12 @@ body .box .overlay, .overlay-wrapper .overlay, .box .loading-img, .overlay-wrapp
 }
 
 body .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-bottom .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-left .ui-tabview-nav li.ui-state-active, body .ui-tabview.ui-tabview-right .ui-tabview-nav li.ui-state-active {
-	background-color: #3c8dbc;
-	border-color: #3c8dbc;
+	background-color: #00a65a;
+	border-color: #00a65a;
 }
 
 body .ui-datatable .ui-datatable-data tr.ui-datatable-even.ui-state-highlight {
-	background-color: #3c8dbc;
+	background-color: #00a65a;
 	border-color: #ffffff;	
 }
 

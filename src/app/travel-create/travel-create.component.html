@@ -21,10 +21,58 @@
             		<div class="form-group">
 	                	<label for="inputCompany" class="col-sm-2 control-label">Asignado a:</label>
 	                	<div class="col-sm-7">
-		                    <input type="text" class="form-control" id="inputCompany" placeholder="Nombre de la compañía">
+		                    <select class="form-control" placeholder="Seleccionar...." id="inputContact">
+		                    <option>Empleado 1</option>
+		                    <option>Empleado 1</option>
+		                    <option>Empleado 1</option>
+		                    <option>Empleado 1</option>
+		                  </select>
 		                </div>
 	                </div>
+	                <div class="form-group">
+	                	<label for="inputCompany" class="col-sm-2 control-label">Destino:</label>
+	                	<div class="col-sm-7">
+		                    <select class="form-control" placeholder="Seleccionar...." id="inputContact">
+		                    <option>Destino 1</option>
+		                    <option>Destino 1</option>
+		                    <option>Destino 1</option>
+		                    <option>Destino 1</option>
+		                  </select>
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputEmail" class="col-sm-2 control-label">Email:</label>
+	                	<div class="col-sm-7">
+		                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputCompany" class="col-sm-2 control-label">Salida</label>
+	                	<div class="col-sm-2">
+		                    <p-calendar [(ngModel)]="date3" [showIcon]="true" [ngModelOptions]="{standalone: true}"></p-calendar>
+		                </div>
+		                <label for="inputCompany" class="col-sm-2 control-label">Llegada</label>
+	                	<div class="col-sm-3">
+		                    <p-calendar [(ngModel)]="date3" [showIcon]="true" [ngModelOptions]="{standalone: true}"></p-calendar>
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputEmail" class="col-sm-2 control-label">Cantidad:</label>
+	                	<div class="col-sm-7">
+		                    <input type="number" class="form-control" id="inputEmail" placeholder="$0">
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputContact" class="col-sm-2 control-label">Descripción</label>
+	                	<div class="col-sm-3">
+	                		<textarea class="form-control" rows="3" placeholder="Mensaje ..."></textarea>
+	                	</div>
+	                </div>
             	</div>
+            	<div class="box-footer">
+	                <button type="submit" class="btn btn-success">Crear viaje</button>
+	                <button type="cancel" class="btn btn-default">Cancelar</button>
+	            </div>
             </form>
         </div>
     </div>
