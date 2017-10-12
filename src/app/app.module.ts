@@ -13,6 +13,8 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { AlertService } from './alert/alert.service';
 import { AuthGuard } from './login/auth.guard';
 import { LoginService } from './login/login.service';
+import { TravelService } from './travel-create/travel.service';
+import { TravelListService } from './travel-list/travel-list.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -60,7 +62,9 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
   providers: [
   AuthGuard,
   LoginService,
-  AlertService
+  AlertService,
+  TravelService,
+  TravelListService
   ],
   bootstrap: [AppComponent]
 })
