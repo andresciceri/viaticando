@@ -11,5 +11,40 @@
 
 <!-- Main content -->
 <section class="content">
+	<div class="row">
+		<div class="navbar-right btn-group top-options-nav">
+			<button type="button" class="btn btn-sm btn-default"><i class="fa fa-bars"></i></button>
+			<button type="button" class="btn btn-sm btn-success" routerLink="/travel-create"><i class="fa fa-plus"></i> Nuevo</button>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="box">
+				<div class="box-header">
+	              <h3 class="box-title">Empleados</h3>
+	            </div>
+	            <div class="box-body">
+	            	<p-dataTable [value]="employees" [rows]="10" [paginator]="true" sortMode="multiple" [globalFilter]="gb" #dt exportFilename="Empleados">
+	            		<p-header>
+					        <div class="ui-helper-clearfix">
+					        	<button type="button"  (click)="dt.exportCSV()" style="float:right" class="btn btn-sm btn-success"><i class="fa fa-download"></i></button>
+					        	<div style="float: right" class="col-xs-3">
+					        		<div class="input-group input-group-sm">
+									  <span class="input-group-addon" id="sizing-addon2"><i class="fa fa-search"></i></span>
+									  <input #gb type="text" class="form-control" pInputText size="50" placeholder="Buscar..." aria-describedby="sizing-addon2">
+									</div>
+					        	</div>
+					        </div>
+					    </p-header>
 
+					    <p-column field="name" header="Nombre" [sortable]="true"></p-column>
+					    <p-column field="area" header="Area" [sortable]="true"></p-column>
+					    <p-column field="travels" header="Viajes" [sortable]="true"></p-column>
+					    
+					</p-dataTable>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 </section>
