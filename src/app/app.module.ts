@@ -15,6 +15,7 @@ import { AuthGuard } from './login/auth.guard';
 import { LoginService } from './login/login.service';
 import { TravelService } from './travel-create/travel.service';
 import { TravelListService } from './travel-list/travel-list.service';
+import { EmployeeListService } from './employee-list/employee-list.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -64,7 +65,8 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
   LoginService,
   AlertService,
   TravelService,
-  TravelListService
+  TravelListService,
+  EmployeeListService
   ],
   bootstrap: [AppComponent]
 })

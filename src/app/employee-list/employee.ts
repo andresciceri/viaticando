@@ -1,5 +1,5 @@
-import { Organization } from "../employee-list/organization";
-export class User {
+import { Organization } from "./organization";
+export class Employee {
 
   id : number;
   firstName : string;

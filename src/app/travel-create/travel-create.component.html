@@ -21,12 +21,9 @@
             		<div class="form-group">
 	                	<label for="inputCompany" class="col-sm-2 control-label">Asignado a:</label>
 	                	<div class="col-sm-7">
-		                    <select class="form-control" placeholder="Seleccionar...." id="inputContact" name="employee" [(ngModel)]="trip.employee" #employee="ngModel" required>
-		                    <option>Empleado 1</option>
-		                    <option>Empleado 1</option>
-		                    <option>Empleado 1</option>
-		                    <option>Empleado 1</option>
-		                  </select>
+	                		<p-autoComplete [(ngModel)]="trip.employee" [suggestions]="filteredUser" (completeMethod)="filterUserList($event)" [size]="auto"
+							[minLength]="1" placeholder="Buscar: " name="user" #user="ngModel" required [dropdown]="true" (onDropdownClick)="handleDropdownClickUser($event)" field="username" dataKey="id" >
+							</p-autoComplete>
 		                </div>
 	                </div>
 	                <div class="form-group">
