@@ -22,7 +22,7 @@
 	                	<label for="inputCompany" class="col-sm-2 control-label">Asignado a:</label>
 	                	<div class="col-sm-7">
 	                		<p-autoComplete [(ngModel)]="trip.employee" [suggestions]="filteredUser" (completeMethod)="filterUserList($event)" [size]="auto"
-							[minLength]="1" placeholder="Buscar: " name="user" #user="ngModel" required [dropdown]="true" (onDropdownClick)="handleDropdownClickUser($event)" field="username" dataKey="id" >
+							[minLength]="1" placeholder="Buscar: " name="user" #user="ngModel" required [dropdown]="true" (onDropdownClick)="handleDropdownClickUser($event)" field="email" dataKey="id" >
 							</p-autoComplete>
 		                </div>
 	                </div>

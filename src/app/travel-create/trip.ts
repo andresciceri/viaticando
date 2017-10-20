@@ -4,7 +4,7 @@ import {User} from "../login/user";
 
 export class Trip {
 	id : number;
-  	expenses : Expense;
+  	expenses : Expense[];
 	budget : number;
 	startDate : Date;
 	endDate : Date;
@@ -13,5 +13,7 @@ export class Trip {
 	status : Status;
 	employee: User;
   	
-	constructor (){}
+	constructor (){
+		this.status = {id: 1, name: "Estado 1"};
+	}
 }

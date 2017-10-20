@@ -43,14 +43,12 @@ export class TravelCreateComponent implements OnInit {
         });
   }
 
-  private onCreateProduct(): void {
+  private onCreateTravel(): void {
         
-    console.log(this.trip);
     this.travelService.postTravel(this.trip)
-    .then(trip => {
-      console.log(trip);
+    .then(trip => {      
       let msg = "El viaje se creó exitosamente.";
-      let link = {path: '/detail-travel', param: trip.id};
+      let link = {path: '/travel-detail', param: trip.id};
       this.alertService.success(msg, link);
     },
     error => {     

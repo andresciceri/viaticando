@@ -1,0 +1,55 @@
+<section class="content-header">
+	<h1>
+		<i class="fa fa-plane"></i> Detalle del Viaje
+	</h1>
+	<ol class="breadcrumb">
+		<li><a routerLink="/"><i class="fa fa-plane"></i> Inicio</a></li>
+		<li><a routerLink="/travel-list">Viajes</a></li>
+		<li class="active">Detalle</li>
+	</ol>
+</section>
+<section class="content">
+	<div class="col-md-12">
+		<div class="box box-success">
+			<div class="box-header with-border">
+              <h3 class="box-title">Viaje</h3>
+            </div>
+            <div class="box-body">
+            	<div class="col-sm-12">
+        			<label class="col-sm-2 control-label text-muted">Empleado:</label>
+		       		<div class="col-sm-4">
+		       			<label >{{trip.employee.firtsName}} {{trip.employee.lastName}}</label>
+		       		</div>
+            	</div>
+            	<div class="col-sm-12">
+        			<label class="col-sm-2 control-label text-muted">Email:</label>
+		       		<div class="col-sm-4">
+		       			<label >{{trip.employee.email}}</label>
+		       		</div>
+            	</div>
+            	<div class="col-sm-12">
+        			<label class="col-sm-2 control-label text-muted">Destino:</label>
+		       		<div class="col-sm-4">
+		       			<label >{{trip.destiny}}</label>
+		       		</div>
+            	</div>
+            	<div class="col-sm-12">
+        			<label class="col-sm-2 control-label text-muted">Presupuesto:</label>
+		       		<div class="col-sm-4">
+		       			<label >{{trip.budget}}</label>
+		       		</div>
+            	</div>
+            	<div class="col-sm-12">
+            			<label class="col-sm-2 control-label text-muted">Fecha de salida:</label>
+			       		<div class="col-sm-4">
+			       			<label >{{trip.startDate | date}}</label>
+			       		</div>
+			       		<label class="col-sm-2 control-label text-muted">Fecha de llegada:</label>
+			       		<div class="col-sm-4">
+			       			<label >{{trip.endDate | date}}</label>
+			       		</div>
+            		</div>
+            </div>
+        </div>
+    </div>
+</section>

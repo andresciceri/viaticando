@@ -6,6 +6,7 @@ import { MainComponent } from './main/main.component';
 import { TravelCreateComponent } from './travel-create/travel-create.component';
 import { TravelListComponent } from './travel-list/travel-list.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { TravelDetailComponent } from './travel-detail/travel-detail.component';
 
 
 import { AuthGuard } from './login/auth.guard';
@@ -34,6 +35,11 @@ const appRoutes: Routes = [
             {
               path: 'travel-list',
               component: TravelListComponent,
+              canActivate: []
+            },
+            {
+              path: 'travel-detail/:id',
+              component: TravelDetailComponent,
               canActivate: []
             },
             {

@@ -11,7 +11,7 @@ import { Employee } from './employee';
 export class EmployeeListService {
 
 	private headers = new Headers({'Content-Type': 'application/json'});
-	private employeesUrl = apipaths.urlApi + 'Users';  // URL to web ap	
+	private employeesUrl = apipaths.localPath + 'Users';  // URL to web ap	
 
   constructor(private http: Http) { }
 

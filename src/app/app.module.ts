@@ -9,6 +9,10 @@ import { ProgressBarModule, DataTableModule,SharedModule,
           InputMaskModule, RadioButtonModule, AutoCompleteModule, 
             ListboxModule, TabViewModule, CalendarModule, ChartModule,
               DialogModule, DataListModule} from 'primeng/primeng';
+
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './api-local/api-simulate.service';
+
 import { FileUploadModule } from 'ng2-file-upload';
 import { AlertService } from './alert/alert.service';
 import { AuthGuard } from './login/auth.guard';
@@ -26,6 +30,7 @@ import { MenuMainComponent } from './menu-main/menu-main.component';
 import { TravelCreateComponent } from './travel-create/travel-create.component';
 import { TravelListComponent } from './travel-list/travel-list.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { TravelDetailComponent } from './travel-detail/travel-detail.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,8 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
     MenuMainComponent,
     TravelCreateComponent,
     TravelListComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    TravelDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,8 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
     CalendarModule,
     ChartModule,
     DialogModule,
-    DataListModule
+    DataListModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [
   AuthGuard,

@@ -38,12 +38,20 @@
 					        </div>
 					    </p-header>
 
-					    <p-column field="name" header="Nombre" [sortable]="true"></p-column>
-					    <p-column field="budget" header="Compañía" [sortable]="true"></p-column>
-					    <p-column field="category" header="Categoría" [sortable]="true"></p-column>
-					    <p-column field="startDate" header="Salida" [sortable]="true"></p-column>
-					    <p-column field="endDate" header="Llegada" [sortable]="true"></p-column>
-					    <p-column field="status" header="Estado" [sortable]="true"></p-column>
+					    <p-column field="employee.firstName" header="Nombre Empleado" [sortable]="true"></p-column>
+					    <p-column field="destiny" header="Destino" [sortable]="true"></p-column>
+					    <p-column field="budget" header="Saldo" [sortable]="true"></p-column>
+					    <p-column field="startDate" header=" Fecha Salida" [sortable]="true">
+					    	<ng-template let-dat let-item="rowData" pTemplate="body">
+					            <span >{{item[dat.field] | date:'medium'}}</span>
+					        </ng-template>
+					    </p-column>
+					    <p-column field="endDate" header="Fecha Llegada" [sortable]="true">
+					    	<ng-template let-dat let-item="rowData" pTemplate="body">
+					            <span >{{item[dat.field] | date:'medium'}}</span>
+					        </ng-template>
+					    </p-column>
+					    <p-column field="status.name" header="Estado" [sortable]="true"></p-column>
 					    
 					</p-dataTable>
 	            </div>
