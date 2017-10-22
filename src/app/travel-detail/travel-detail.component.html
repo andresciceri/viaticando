@@ -48,7 +48,37 @@
 			       		<div class="col-sm-4">
 			       			<label >{{trip.endDate | date}}</label>
 			       		</div>
-            		</div>
+            	</div>
+            	<div class="col-sm-12">
+	            	<hr>
+	            </div>
+	            <p-tabView>
+	            		<p-tabPanel header="Lista de gastos" [selected]="true">
+	            			<p-dataTable [value]="trip.expenses" [rows]="20" [paginator]="true" sortMode="multiple" [totalRecords]="totalRecords">
+		            			<p-headerColumnGroup>
+		            				<p-row>
+							            <p-column header="NIT" [sortable]="true" ></p-column>
+							            <p-column header="Categoría" [sortable]="true"></p-column>
+							            <p-column header="Fecha" [sortable]="true"></p-column>
+							            <p-column header="Descripción" [sortable]="true"></p-column>
+							            <p-column header="Valor" [sortable]="true"></p-column>
+							        </p-row>
+		            			</p-headerColumnGroup>
+		            			<p-column field="nit" ></p-column>
+							    <p-column field="category.name"></p-column>
+							    <p-column field="date" >
+							    	<ng-template let-dat let-item="rowData" pTemplate="body">
+							            <span >{{item[dat.field] | date:'medium'}}</span>
+							        </ng-template>					    	
+							    </p-column>
+							    <p-column field="description" >					    	
+							    </p-column>
+							    <p-column field="value" >					    	
+							    </p-column>
+							    
+							</p-dataTable>
+	            		</p-tabPanel>
+	            	</p-tabView>
             </div>
         </div>
     </div>

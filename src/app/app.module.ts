@@ -20,6 +20,7 @@ import { LoginService } from './login/login.service';
 import { TravelService } from './travel-create/travel.service';
 import { TravelListService } from './travel-list/travel-list.service';
 import { EmployeeListService } from './employee-list/employee-list.service';
+import { TravelDetailService } from './travel-detail/travel-detail.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -73,7 +74,8 @@ import { TravelDetailComponent } from './travel-detail/travel-detail.component';
   AlertService,
   TravelService,
   TravelListService,
-  EmployeeListService
+  EmployeeListService,
+  TravelDetailService
   ],
   bootstrap: [AppComponent]
 })

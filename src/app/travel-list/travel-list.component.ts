@@ -12,6 +12,7 @@ import {Trip} from '../travel-create/trip';
 export class TravelListComponent implements OnInit {
 
 	private travels : Trip[];
+  private tripSelected: Trip;
 
   constructor(private travelListService: TravelListService, private alertService: AlertService,
   	private route: ActivatedRoute, private router: Router) { 
@@ -38,7 +39,7 @@ export class TravelListComponent implements OnInit {
   }
 
   onRowSelect(event) {
-    this.router.navigate(['/detail-travel', event.data.id]);
+    this.router.navigate(['/travel-detail', event.data.id]);
   }
 
 }
