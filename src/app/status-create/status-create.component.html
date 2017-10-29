@@ -1,0 +1,35 @@
+<section class="content-header">
+	<h1>
+		<i class="fa fa-warning"></i> Crear nuevo estado
+	</h1>
+	<ol class="breadcrumb">
+		<li><a routerLink="/"><i class="fa fa-warning"></i> Inicio</a></li>
+		<li><a routerLink="/status-list">Estados</a></li>
+		<li class="active">Crear</li>
+	</ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+	<div class="col-md-12">
+		<div class="box box-success">
+			<div class="box-header with-border">
+              <h3 class="box-title">Nuevo Estado</h3>
+            </div>
+            <form class="form-horizontal" (ngSubmit)="onCreateStatus()" #statusForm="ngForm" method="post">
+            	<div class="box-body">
+            		<div class="form-group">
+	                	<label for="inputName" class="col-sm-2 control-label">Nombre Estado:</label>
+	                	<div class="col-sm-7">
+		                    <input type="text" class="form-control" id="inputName" placeholder="Digite el nombre del estado" [(ngModel)]="status" name="name" #name="ngModel" required>
+		                </div>
+	                </div>
+            	</div>
+            	<div class="box-footer">
+	                <button type="submit" class="btn btn-success">Crear Estado</button>
+	                <button type="cancel" class="btn btn-default">Cancelar</button>
+	            </div>
+            </form>
+        </div>
+	</div>
+</section>

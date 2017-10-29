@@ -1,0 +1,35 @@
+<section class="content-header">
+	<h1>
+		<i class="fa fa-bookmark"></i> Estados
+	</h1>
+	<ol class="breadcrumb">
+		<li><a routerLink="/"><i class="fa fa-bookmark"></i> Inicio</a></li>
+		<li><a routerLink="/category-list">Estados</a></li>
+		<li class="active">listado</li>
+	</ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+	<div class="row">
+		<div class="navbar-right btn-group top-options-nav">
+			<button type="button" class="btn btn-sm btn-default"><i class="fa fa-bars"></i></button>
+			<button type="button" class="btn btn-sm btn-success" routerLink="/status-create"><i class="fa fa-plus"></i> Nuevo</button>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="box">
+				<div class="box-header">
+	              <h3 class="box-title">Estados</h3>
+	            </div>
+	            <div class="box-body">
+	            	<p-dataTable [value]="status" [rows]="10" [paginator]="true" sortMode="multiple" [globalFilter]="gb" #dt dataKey="id">
+					    <p-column field="name" header="Nombre" [sortable]="true"></p-column>					    
+					</p-dataTable>
+	            </div>
+			</div>
+		</div>
+	</div>
+</section>

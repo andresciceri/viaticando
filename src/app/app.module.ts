@@ -32,6 +32,10 @@ import { TravelCreateComponent } from './travel-create/travel-create.component';
 import { TravelListComponent } from './travel-list/travel-list.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { TravelDetailComponent } from './travel-detail/travel-detail.component';
+import { CategoryCreateComponent } from './category-create/category-create.component';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { StatusCreateComponent } from './status-create/status-create.component';
+import { StatusListComponent } from './status-list/status-list.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,11 @@ import { TravelDetailComponent } from './travel-detail/travel-detail.component';
     TravelCreateComponent,
     TravelListComponent,
     EmployeeListComponent,
-    TravelDetailComponent
+    TravelDetailComponent,
+    CategoryCreateComponent,
+    CategoryListComponent,
+    StatusCreateComponent,
+    StatusListComponent    
   ],
   imports: [
     BrowserModule,

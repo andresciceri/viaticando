@@ -1,0 +1,41 @@
+<section class="content-header">
+	<h1>
+		<i class="fa fa-bookmark"></i> Crear una nueva categoría
+	</h1>
+	<ol class="breadcrumb">
+		<li><a routerLink="/"><i class="fa fa-bookmark"></i> Inicio</a></li>
+		<li><a routerLink="/category-list">Categorías</a></li>
+		<li class="active">Crear</li>
+	</ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+	<div class="col-md-12">
+		<div class="box box-success">
+			<div class="box-header with-border">
+              <h3 class="box-title">Nueva Categoría</h3>
+            </div>
+            <form class="form-horizontal" (ngSubmit)="onCreateCategory()" #categoryForm="ngForm" method="post">
+            	<div class="box-body">
+            		<div class="form-group">
+	                	<label for="inputName" class="col-sm-2 control-label">Nombre:</label>
+	                	<div class="col-sm-7">
+		                    <input type="text" class="form-control" id="inputName" placeholder="Digite el nombre" [(ngModel)]="category" name="name" #name="ngModel" required>
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputAccount" class="col-sm-2 control-label">Número de Cuenta:</label>
+	                	<div class="col-sm-7">
+		                    <input type="text" class="form-control" id="inputAccount" placeholder="Digite el número de cuenta" [(ngModel)]="category" name="account" #account="ngModel" required>
+		                </div>
+	                </div>
+            	</div>
+            	<div class="box-footer">
+	                <button type="submit" class="btn btn-success">Crear Categoría</button>
+	                <button type="cancel" class="btn btn-default">Cancelar</button>
+	            </div>
+            </form>
+        </div>
+	</div>
+</section>

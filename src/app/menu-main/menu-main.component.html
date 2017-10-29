@@ -20,4 +20,33 @@
 	    <i class="fa fa-users"></i> <span>Empleados</span>
 	  </a>
 	</li>
+	<li class="treeview" routerLinkActive="active">
+	  <a routerLink="/employee-list">
+	    <i class="fa fa-users"></i> <span>Empleados</span>
+	  </a>
+	</li>
+	<li class="treeview" routerLinkActive="active">
+		<a href="#">
+		    <i class="fa fa-bookmark"></i> <span>Categorías</span>
+		    <span class="pull-right-container">
+		      <i class="fa fa-angle-left pull-right"></i>
+		    </span>
+		</a>
+	  	<ul class="treeview-menu">
+	    	<li class="active"><a routerLink="/category-create" routerLinkActive="active"><i class="fa fa-plus-square"></i> Crear Nueva</a></li>
+	    	<li class="active"><a routerLink="/category-list"><i class="fa fa-bookmark"></i> Listado Categorías</a></li>
+	  	</ul>
+	</li>
+	<li class="treeview" routerLinkActive="active">
+		<a href="#">
+		    <i class="fa fa-warning"></i> <span>Estados</span>
+		    <span class="pull-right-container">
+		      <i class="fa fa-angle-left pull-right"></i>
+		    </span>
+		</a>
+	  	<ul class="treeview-menu">
+	    	<li class="active"><a routerLink="/status-create" routerLinkActive="active"><i class="fa fa-plus-square"></i> Crear Nuevo</a></li>
+	    	<li class="active"><a routerLink="/status-list"><i class="fa fa-warning"></i> Listado Estados</a></li>
+	  	</ul>
+	</li>
 </ul>
