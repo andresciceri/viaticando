@@ -5,27 +5,30 @@ import 'rxjs/add/operator/toPromise';
 
 import { apipaths } from '../app.apis';
 
-import {Trip} from '../travel-create/trip';
+import {Category} from './category';
 
 @Injectable()
-export class TravelListService {
+export class CategoryCreateService {
 
 	private headers = new Headers({'Content-Type': 'application/json'});
-	private travelsUrl = apipaths.urlApi + 'Trips';  // URL to web ap	  
+	private categoryUrl = apipaths.urlApi + 'Categories';  // URL to web ap	
+  private token = "hg4TU4TzZedCRjaGs9akcopD14AzgC03";
 
   constructor(private http: Http) { }
 
-  getTravels() : Promise<Trip[]> {
+  postCategory (category : Category) : Promise<Category>{
+    this.headers.append('Authorization', this.token);
     let options = new RequestOptions({ headers : this.headers});
-    const url = `${this.travelsUrl}`;
-    return this.http.get(url,options)
-               .toPromise()
-               .then(response => response.json() as Trip[])
-               .catch(this.handleError);
+    let body = JSON.stringify(category);
+    return this.http.post(this.categoryUrl,body, options)
+              .toPromise()
+              .then(res => res.json() as Category)
+              .catch(this.handleError);
   }
 
   private handleError(error: any): Promise<any> {
     //console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
   }
+
 }

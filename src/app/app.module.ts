@@ -21,6 +21,10 @@ import { TravelService } from './travel-create/travel.service';
 import { TravelListService } from './travel-list/travel-list.service';
 import { EmployeeListService } from './employee-list/employee-list.service';
 import { TravelDetailService } from './travel-detail/travel-detail.service';
+import { CategoryCreateService } from './category-create/category-create.service';
+import { CategoryListService } from './category-list/category-list.service';
+import { StatusCreateService } from './status-create/status-create.service';
+import { StatusListService } from './status-list/status-list.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -74,7 +78,7 @@ import { StatusListComponent } from './status-list/status-list.component';
     ChartModule,
     DialogModule,
     DataListModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    //InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [
   AuthGuard,
@@ -83,7 +87,11 @@ import { StatusListComponent } from './status-list/status-list.component';
   TravelService,
   TravelListService,
   EmployeeListService,
-  TravelDetailService
+  TravelDetailService,
+  CategoryCreateService,
+  CategoryListService,
+  StatusCreateService,
+  StatusListService
   ],
   bootstrap: [AppComponent]
 })

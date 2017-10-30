@@ -21,13 +21,13 @@
             		<div class="form-group">
 	                	<label for="inputName" class="col-sm-2 control-label">Nombre:</label>
 	                	<div class="col-sm-7">
-		                    <input type="text" class="form-control" id="inputName" placeholder="Digite el nombre" [(ngModel)]="category" name="name" #name="ngModel" required>
+		                    <input type="text" class="form-control" id="inputName" placeholder="Digite el nombre" [(ngModel)]="category.name" name="name" #name="ngModel" required>
 		                </div>
 	                </div>
 	                <div class="form-group">
 	                	<label for="inputAccount" class="col-sm-2 control-label">Número de Cuenta:</label>
 	                	<div class="col-sm-7">
-		                    <input type="text" class="form-control" id="inputAccount" placeholder="Digite el número de cuenta" [(ngModel)]="category" name="account" #account="ngModel" required>
+		                    <input type="text" class="form-control" id="inputAccount" placeholder="Digite el número de cuenta" [(ngModel)]="category.accountingNumber" name="account" #account="ngModel" required>
 		                </div>
 	                </div>
             	</div>
