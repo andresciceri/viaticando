@@ -8,7 +8,7 @@ import { apipaths } from './app.apis';
 import { ProgressBarModule, DataTableModule,SharedModule, 
           InputMaskModule, RadioButtonModule, AutoCompleteModule, 
             ListboxModule, TabViewModule, CalendarModule, ChartModule,
-              DialogModule, DataListModule} from 'primeng/primeng';
+              DialogModule, DataListModule, TriStateCheckboxModule} from 'primeng/primeng';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './api-local/api-simulate.service';
@@ -40,6 +40,7 @@ import { CategoryCreateComponent } from './category-create/category-create.compo
 import { CategoryListComponent } from './category-list/category-list.component';
 import { StatusCreateComponent } from './status-create/status-create.component';
 import { StatusListComponent } from './status-list/status-list.component';
+import { ApproveexpPipe } from './approveexp.pipe';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { StatusListComponent } from './status-list/status-list.component';
     CategoryCreateComponent,
     CategoryListComponent,
     StatusCreateComponent,
-    StatusListComponent    
+    StatusListComponent,
+    ApproveexpPipe    
   ],
   imports: [
     BrowserModule,
@@ -78,6 +80,7 @@ import { StatusListComponent } from './status-list/status-list.component';
     ChartModule,
     DialogModule,
     DataListModule,
+    TriStateCheckboxModule
     //InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [

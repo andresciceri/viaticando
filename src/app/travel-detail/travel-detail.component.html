@@ -62,6 +62,7 @@
 							            <p-column header="Fecha" [sortable]="true"></p-column>
 							            <p-column header="Descripción" [sortable]="true"></p-column>
 							            <p-column header="Valor" [sortable]="true"></p-column>
+							            <p-column header="Aprobar"></p-column>
 							        </p-row>
 		            			</p-headerColumnGroup>
 		            			<p-column field="nit" ></p-column>
@@ -74,6 +75,11 @@
 							    <p-column field="description" >					    	
 							    </p-column>
 							    <p-column field="value" >					    	
+							    </p-column>
+							    <p-column field="approved">
+							    	<ng-template let-dat let-item="rowData" pTemplate="body">
+							            <p-triStateCheckbox [(ngModel)]="item[dat.field]" (click)="onChangeItem(item)"></p-triStateCheckbox> - {{item[dat.field] | approveexp}}
+							        </ng-template>
 							    </p-column>
 							    
 							</p-dataTable>
