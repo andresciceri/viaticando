@@ -1,5 +1,5 @@
 export class Status {
-	id : number;
+	tripStatusId : number;
 	name : string;
 
 	constructor (){}

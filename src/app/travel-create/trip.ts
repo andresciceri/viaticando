@@ -3,7 +3,7 @@ import {Status} from "./status";
 import {Employee} from "../employee-list/employee";
 
 export class Trip {
-	id : number;
+	tripId : number;
   	expenses : Expense[];
 	budget : number;
 	startDate : Date;
@@ -14,7 +14,7 @@ export class Trip {
 	employee: Employee;
   	
 	constructor (){
-		this.status = {id: 1, name: "Estado 1"};
+		this.status = {tripStatusId: 1, name: "Estado 1"};
 		this.employee = new Employee();
 	}
 }

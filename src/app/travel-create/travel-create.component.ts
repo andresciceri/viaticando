@@ -48,7 +48,7 @@ export class TravelCreateComponent implements OnInit {
     this.travelService.postTravel(this.trip)
     .then(trip => {      
       let msg = "El viaje se creó exitosamente.";
-      let link = {path: '/travel-detail', param: trip.id};
+      let link = {path: '/travel-detail', param: trip.tripId};
       this.alertService.success(msg, link);
     },
     error => {     
@@ -58,9 +58,8 @@ export class TravelCreateComponent implements OnInit {
         msg = "Se ha encontrado un problema al conectar con el servidor";
         this.alertService.error(msg);
       }else if(msg_j.type == 2 && msg_j.url != "") {
-        msg_j = JSON.parse(error._body);
-        msg = msg_j.non_field_errors[0];
-        this.alertService.warning(msg);
+        msg = "Se ha encontrado un problema al conectar con el servidor";
+        this.alertService.error(msg);
       }
     });
     
