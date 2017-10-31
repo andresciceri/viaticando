@@ -11,7 +11,7 @@ import {Trip} from '../travel-create/trip';
 export class TravelListService {
 
 	private headers = new Headers({'Content-Type': 'application/json'});
-	private travelsUrl = apipaths.localApi + 'Trips';  // URL to web ap	  
+	private travelsUrl = apipaths.urlApi + 'Trips';  // URL to web ap	  
 
   constructor(private http: Http) { }
 

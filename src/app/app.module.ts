@@ -8,7 +8,7 @@ import { apipaths } from './app.apis';
 import { ProgressBarModule, DataTableModule,SharedModule, 
           InputMaskModule, RadioButtonModule, AutoCompleteModule, 
             ListboxModule, TabViewModule, CalendarModule, ChartModule,
-              DialogModule, DataListModule, TriStateCheckboxModule} from 'primeng/primeng';
+              DialogModule, DataListModule, TriStateCheckboxModule, DropdownModule} from 'primeng/primeng';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './api-local/api-simulate.service';
@@ -80,8 +80,9 @@ import { ApproveexpPipe } from './approveexp.pipe';
     ChartModule,
     DialogModule,
     DataListModule,
-    TriStateCheckboxModule
-    //InMemoryWebApiModule.forRoot(InMemoryDataService)
+    TriStateCheckboxModule,
+    DropdownModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [
   AuthGuard,

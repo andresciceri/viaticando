@@ -12,8 +12,8 @@ import {Expense} from '../travel-create/expense';
 export class TravelDetailService {
 
 	private headers = new Headers({'Content-Type': 'application/json'});
-	private travelUrl = apipaths.localApi + 'Trips';  // URL to web ap	  
-  private expensesUrl = apipaths.localApi + 'Expenses';  // URL to web ap
+	private travelUrl = apipaths.urlApi + 'Trips';  // URL to web ap	  
+  private expensesUrl = apipaths.urlApi + 'Expenses';  // URL to web ap
 
   constructor(private http: Http) { }
 

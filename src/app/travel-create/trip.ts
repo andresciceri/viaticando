@@ -1,5 +1,5 @@
 import {Expense} from "./expense";
-import {Status} from "./status";
+import {Status} from '../status-create/status';
 import {Employee} from "../employee-list/employee";
 
 export class Trip {
@@ -14,7 +14,6 @@ export class Trip {
 	employee: Employee;
   	
 	constructor (){
-		this.status = {tripStatusId: 1, name: "Estado 1"};
 		this.employee = new Employee();
 	}
 }
