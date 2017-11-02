@@ -67,10 +67,15 @@ export class TravelCreateComponent implements OnInit {
 
   private onCreateTravel(): void {
     this.trip.status = this.statuses[this.status];
+    this.trip.statusId = this.trip.status.tripStatusId;
+    this.trip.status = null;
+    this.trip.employeeId = this.trip.employee.userId;
+    this.trip.employee = null;
+
     this.travelService.postTravel(this.trip)
     .then(trip => {      
       let msg = "El viaje se creó exitosamente.";
-      let link = {path: '/travel-detail', param: trip.tripId};
+      let link = {path: '/travel-list'};
       this.alertService.success(msg, link);
     },
     error => {     

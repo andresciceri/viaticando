@@ -81,8 +81,8 @@ import { ApproveexpPipe } from './approveexp.pipe';
     DialogModule,
     DataListModule,
     TriStateCheckboxModule,
-    DropdownModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService)
+    DropdownModule
+    //InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [
   AuthGuard,

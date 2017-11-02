@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { TravelListService } from './travel-list.service';
+import { EmployeeListService } from '../employee-list/employee-list.service';
+import { StatusListService } from '../status-list/status-list.service';
 import { AlertService } from '../alert/alert.service';
 import {Trip} from '../travel-create/trip';
 
@@ -15,7 +17,8 @@ export class TravelListComponent implements OnInit {
   private tripSelected: Trip;
 
   constructor(private travelListService: TravelListService, private alertService: AlertService,
-  	private route: ActivatedRoute, private router: Router) { 
+  	private employeeListService: EmployeeListService, private statusListService: StatusListService, 
+      private route: ActivatedRoute, private router: Router) { 
   	this.travels = [];
   }
 
@@ -23,6 +26,13 @@ export class TravelListComponent implements OnInit {
   	this.travelListService.getTravels()
       .then(travels => {
           this.travels = travels;
+          for (var i = 0; i < this.travels.length; ++i) {
+            // code...
+            if(this.travels[i].employeeId){
+              this.addEmployee(i,this.travels[i].employeeId);
+              this.addStatus(i,this.travels[i].statusId);
+            }
+          }
       },
       error => {
           let msg_j = error;
@@ -38,8 +48,22 @@ export class TravelListComponent implements OnInit {
         });
   }
 
-  onRowSelect(event) {
-    this.router.navigate(['/travel-detail', event.data.id]);
+  addEmployee (key: number, id: number){
+    this.employeeListService.getEmployee(id)
+      .then(employee => {
+        this.travels[key].employee = employee;
+      });
+  }
+
+  addStatus (key: number, id: number){
+    this.statusListService.getStatus(id)
+      .then(status => {
+        this.travels[key].status = status;
+      });
+  }
+
+  onRowSelect(event) {    
+    this.router.navigate(['/travel-detail', event.data.tripId]);
   }
 
 }

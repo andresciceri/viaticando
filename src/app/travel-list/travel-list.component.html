@@ -25,7 +25,7 @@
 	              <h3 class="box-title">Viajes</h3>
 	            </div>
 	            <div class="box-body">
-	            	<p-dataTable [value]="travels" [rows]="10" [paginator]="true" sortMode="multiple" [globalFilter]="gb" #dt exportFilename="Viajes" selectionMode="single" [(selection)]="tripSelected" (onRowSelect)="onRowSelect($event)" dataKey="id">
+	            	<p-dataTable [value]="travels" [rows]="10" [paginator]="true" sortMode="multiple" [globalFilter]="gb" #dt exportFilename="Viajes" selectionMode="single" [(selection)]="tripSelected" (onRowSelect)="onRowSelect($event)" dataKey="tripId">
 	            		<p-header>
 					        <div class="ui-helper-clearfix">
 					        	<button type="button"  (click)="dt.exportCSV()" style="float:right" class="btn btn-sm btn-success"><i class="fa fa-download"></i></button>

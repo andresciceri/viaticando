@@ -12,8 +12,9 @@ export class Trip {
 	description : string;
 	status : Status;
 	employee: Employee;
+	employeeId: number;
+	statusId: number;
   	
-	constructor (){
-		this.employee = new Employee();
+	constructor (){		
 	}
 }
