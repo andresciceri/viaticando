@@ -110,6 +110,10 @@ body .box.box-primary {
 	overflow: hidden;
 }
 
+body .box.box-success {
+	overflow: hidden;
+}
+
 body .corner-ribbon{
   width: 200px;
   background: #e43;

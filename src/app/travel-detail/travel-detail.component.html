@@ -11,6 +11,7 @@
 <section class="content">
 	<div class="col-md-12">
 		<div class="box box-success">
+			<div class="corner-ribbon top-right sticky bg-green">{{status.name}}</div>
 			<div class="box-header with-border">
               <h3 class="box-title">Viaje</h3>
             </div>
@@ -18,13 +19,13 @@
             	<div class="col-sm-12">
         			<label class="col-sm-2 control-label text-muted">Empleado:</label>
 		       		<div class="col-sm-4">
-		       			<label >{{trip.employee.firtsName}} {{trip.employee.lastName}}</label>
+		       			<label >{{employee.firtsName}} {{employee.lastName}}</label>
 		       		</div>
             	</div>
             	<div class="col-sm-12">
         			<label class="col-sm-2 control-label text-muted">Email:</label>
 		       		<div class="col-sm-4">
-		       			<label >{{trip.employee.email}}</label>
+		       			<label >{{employee.email}}</label>
 		       		</div>
             	</div>
             	<div class="col-sm-12">
@@ -54,7 +55,7 @@
 	            </div>
 	            <p-tabView>
 	            		<p-tabPanel header="Lista de gastos" [selected]="true">
-	            			<p-dataTable [value]="trip.expenses" [rows]="20" [paginator]="true" sortMode="multiple" [totalRecords]="totalRecords">
+	            			<p-dataTable [value]="expenses" [rows]="20" [paginator]="true" sortMode="multiple" [totalRecords]="totalRecords" [immutable]="false">
 		            			<p-headerColumnGroup>
 		            				<p-row>
 							            <p-column header="NIT" [sortable]="true" ></p-column>
@@ -63,10 +64,12 @@
 							            <p-column header="Descripción" [sortable]="true"></p-column>
 							            <p-column header="Valor" [sortable]="true"></p-column>
 							            <p-column header="Aprobar"></p-column>
+							            <p-column ></p-column>
 							        </p-row>
 		            			</p-headerColumnGroup>
 		            			<p-column field="nit" ></p-column>
-							    <p-column field="category.name"></p-column>
+							    <p-column field="category.name">
+							    </p-column>
 							    <p-column field="date" >
 							    	<ng-template let-dat let-item="rowData" pTemplate="body">
 							            <span >{{item[dat.field] | date:'medium'}}</span>
@@ -81,6 +84,11 @@
 							            <p-triStateCheckbox [(ngModel)]="item[dat.field]" (click)="onChangeItem(item)"></p-triStateCheckbox> - {{item[dat.field] | approveexp}}
 							        </ng-template>
 							    </p-column>
+							    <p-column field="photoURL" >
+							    	<ng-template let-dat let-item="rowData" pTemplate="body">
+							            <a class="" (click)="showModal(item[dat.field])"><i class="fa fa-ticket"></i> Ver factura</a>
+							        </ng-template>					    	
+							    </p-column>
 							    
 							</p-dataTable>
 	            		</p-tabPanel>
@@ -89,3 +97,22 @@
         </div>
     </div>
 </section>
+
+<!-- Modal -->
+<div class="modal fade in" *ngIf="imageUrl" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  [ngStyle]="{'display': isVisible}" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Recibo del Gasto</h4>
+      </div>
+      <div class="modal-body" style="height: 450px; overflow: scroll;">
+        <img [src]="imageUrl" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="closeModal()">Cerrar</button>        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->

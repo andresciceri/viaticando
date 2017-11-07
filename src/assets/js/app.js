@@ -462,9 +462,7 @@ function _init() {
 
       //Listen to the click event
       $(document).on('click', toggleBtn, function (e){
-        e.preventDefault();
-        console.log("Click");
-        console.log(e);
+        e.preventDefault();        
         //If the sidebar is not open
         if (!sidebar.hasClass('control-sidebar-open')
           && !$('body').hasClass('control-sidebar-open')) {

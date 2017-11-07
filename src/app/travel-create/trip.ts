@@ -5,6 +5,7 @@ import {Employee} from "../employee-list/employee";
 export class Trip {
 	tripId : number;
   	expenses : Expense[];
+  	expensesIds: number[];
 	budget : number;
 	startDate : Date;
 	endDate : Date;
