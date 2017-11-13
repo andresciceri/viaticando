@@ -11,7 +11,8 @@ import { CategoryCreateComponent } from './category-create/category-create.compo
 import { CategoryListComponent } from './category-list/category-list.component';
 import { StatusCreateComponent } from './status-create/status-create.component';
 import { StatusListComponent } from './status-list/status-list.component';
-
+import { TravelEditComponent } from './travel-edit/travel-edit.component';
+import { StatusEditComponent } from './status-edit/status-edit.component';
 
 import { AuthGuard } from './login/auth.guard';
 
@@ -34,6 +35,11 @@ const appRoutes: Routes = [
             {
               path: 'travel-create',
               component: TravelCreateComponent,
+              canActivate: []
+            },
+            {
+              path: 'travel-edit/:id',
+              component: TravelEditComponent,
               canActivate: []
             },
             {
@@ -64,6 +70,11 @@ const appRoutes: Routes = [
             {
               path: 'status-create',
               component: StatusCreateComponent,
+              canActivate: []
+            },
+            {
+              path: 'status-edit/:id',
+              component: StatusEditComponent,
               canActivate: []
             },
             {

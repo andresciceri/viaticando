@@ -36,7 +36,12 @@ export class AlertComponent implements OnInit {
     }
 
   goDetail () {
-    this.router.navigate([this.message.link.path, this.message.link.param]);
+    if(this.message.link.param) {
+      this.router.navigate([this.message.link.path, this.message.link.param]);  
+    }else {
+      this.router.navigate([this.message.link.path]);
+    }
+    
   }
 
   closeModal() {

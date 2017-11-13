@@ -25,6 +25,11 @@ import { CategoryCreateService } from './category-create/category-create.service
 import { CategoryListService } from './category-list/category-list.service';
 import { StatusCreateService } from './status-create/status-create.service';
 import { StatusListService } from './status-list/status-list.service';
+import { StatusEditService } from './status-edit/status-edit.service';
+import { TravelEditService } from './travel-edit/travel-edit.service';
+import { CategoryEditService } from './category-edit/category-edit.service';
+import { EmployeeCreateService } from './employee-create/employee-create.service';
+import { EmployeeEditService } from './employee-edit/employee-edit.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -41,6 +46,11 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { StatusCreateComponent } from './status-create/status-create.component';
 import { StatusListComponent } from './status-list/status-list.component';
 import { ApproveexpPipe } from './approveexp.pipe';
+import { TravelEditComponent } from './travel-edit/travel-edit.component';
+import { StatusEditComponent } from './status-edit/status-edit.component';
+import { CategoryEditComponent } from './category-edit/category-edit.component';
+import { EmployeeCreateComponent } from './employee-create/employee-create.component';
+import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +68,12 @@ import { ApproveexpPipe } from './approveexp.pipe';
     CategoryListComponent,
     StatusCreateComponent,
     StatusListComponent,
-    ApproveexpPipe    
+    ApproveexpPipe,
+    TravelEditComponent,
+    StatusEditComponent,
+    CategoryEditComponent,
+    EmployeeCreateComponent,
+    EmployeeEditComponent    
   ],
   imports: [
     BrowserModule,
@@ -95,7 +110,12 @@ import { ApproveexpPipe } from './approveexp.pipe';
   CategoryCreateService,
   CategoryListService,
   StatusCreateService,
-  StatusListService
+  StatusListService,
+  StatusEditService,
+  TravelEditService,
+  CategoryEditService,
+  EmployeeCreateService,
+  EmployeeEditService
   ],
   bootstrap: [AppComponent]
 })

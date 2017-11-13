@@ -26,7 +26,12 @@
 	            </div>
 	            <div class="box-body">
 	            	<p-dataTable [value]="status" [rows]="10" [paginator]="true" sortMode="multiple" [globalFilter]="gb" #dt dataKey="id">
-					    <p-column field="name" header="Nombre" [sortable]="true"></p-column>					    
+					    <p-column field="name" header="Nombre" [sortable]="true"></p-column>
+					    <p-column field="tripStatusId" >
+					    	<ng-template let-dat let-item="rowData" pTemplate="body">
+					            <a [routerLink]="['/status-edit', item[dat.field]]"><i class="fa fa-pencil"></i></a>
+					        </ng-template>
+					    </p-column>
 					</p-dataTable>
 	            </div>
 			</div>

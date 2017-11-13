@@ -9,6 +9,12 @@
 	</ol>
 </section>
 <section class="content">
+	<div class="row">
+		<div class="navbar-right btn-group top-options-nav">			
+			<button type="button" class="btn btn-sm btn-success" [routerLink]="['/travel-edit', trip.tripId]"><i class="fa fa-plus"></i> Editar</button>
+		</div>
+	</div>
+	<br>
 	<div class="col-md-12">
 		<div class="box box-success">
 			<div class="corner-ribbon top-right sticky bg-green">{{status.name}}</div>

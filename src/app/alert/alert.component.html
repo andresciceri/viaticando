@@ -11,7 +11,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn " data-dismiss="modal" (click)="closeModal()" [ngClass]="{'btn-danger': message.type == 'error', 'btn-success': message.type == 'success', 'btn-warning': message.type == 'warning'}">Cerrar</button>
-        <button type="button" *ngIf="message.link" data-dismiss="modal" (click)="goDetail()" class="btn btn-primary">Ver Detalle</button>
+        <button type="button" *ngIf="message.link" data-dismiss="modal" (click)="goDetail()" class="btn btn-primary">Volver Listado</button>
       </div>
     </div>
   </div>

@@ -1,0 +1,73 @@
+<section class="content-header">
+	<h1>
+		<i class="fa fa-plane"></i> Editar viaje
+	</h1>
+	<ol class="breadcrumb">
+		<li><a routerLink="/"><i class="fa fa-plane"></i> Inicio</a></li>
+		<li><a routerLink="/travel-list">Viajes</a></li>
+		<li class="active">Editar</li>
+	</ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+	<div class="col-md-12">
+		<div class="box box-success">
+			<div class="box-header with-border">
+              <h3 class="box-title">Viaje de {{employee.firstName}}</h3>
+            </div>
+            <form class="form-horizontal" (ngSubmit)="onEditTravel()" #travelForm="ngForm" method="post">
+            	<div class="box-body">
+            		<div class="form-group">
+	                	<label for="inputCompany" class="col-sm-2 control-label">Asignado a:</label>
+	                	<div class="col-sm-7">
+	                		<p-autoComplete [(ngModel)]="employee" [suggestions]="filteredUser" (completeMethod)="filterUserList($event)" [size]="auto"
+							[minLength]="1" placeholder="Buscar: " name="user" #user="ngModel" required [dropdown]="true" field="email" dataKey="userId" >
+							</p-autoComplete>
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputCompany" class="col-sm-2 control-label">Destino:</label>
+	                	<div class="col-sm-7">
+		                    <input type="text" class="form-control" id="inputDestiny" placeholder="Digite el destino" [(ngModel)]="trip.destiny" name="destiny" #destiny="ngModel" required>
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputCompany" class="col-sm-2 control-label">Salida</label>
+	                	<div class="col-sm-2">
+		                    <p-calendar [(ngModel)]="trip.startDate" [showIcon]="true" name="startDate" #startDate="ngModel"></p-calendar>
+		                </div>
+		                <label for="inputCompany" class="col-sm-2 control-label">Llegada</label>
+	                	<div class="col-sm-3">
+		                    <p-calendar [(ngModel)]="trip.endDate" [showIcon]="true" name="endDate" #endDate="ngModel"></p-calendar>
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputEmail" class="col-sm-2 control-label">Estado:</label>
+	                	<div class="col-sm-7">
+	                		<select class="form-control" id="status" required [(ngModel)]="trip.statusId" name="sts" #sts="ngModel">
+							    <option *ngFor="let status of statuses" [value]="status.tripStatusId">{{status.name}}</option>
+							</select>							
+	                	</div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputEmail" class="col-sm-2 control-label">Cantidad:</label>
+	                	<div class="col-sm-7">
+		                    <input type="number" class="form-control" id="inputBudget" placeholder="$0.0" [(ngModel)]="trip.budget" name="budget" #budget="ngModel" required>
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputContact" class="col-sm-2 control-label">Descripción</label>
+	                	<div class="col-sm-7">
+	                		<textarea class="form-control" rows="3"  placeholder="Mensaje ..." [(ngModel)]="trip.description" name="description" #description="ngModel"></textarea>
+	                	</div>
+	                </div>
+            	</div>
+            	<div class="box-footer">
+	                <button type="submit" class="btn btn-success">Editar viaje</button>
+	                <button type="cancel" class="btn btn-default">Cancelar</button>
+	            </div>	            
+            </form>
+        </div>
+    </div>
+</section>
