@@ -30,6 +30,7 @@ import { TravelEditService } from './travel-edit/travel-edit.service';
 import { CategoryEditService } from './category-edit/category-edit.service';
 import { EmployeeCreateService } from './employee-create/employee-create.service';
 import { EmployeeEditService } from './employee-edit/employee-edit.service';
+import { AuthService } from './auth/auth.service';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -51,6 +52,7 @@ import { StatusEditComponent } from './status-edit/status-edit.component';
 import { CategoryEditComponent } from './category-edit/category-edit.component';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
+import { CallbackComponent } from './callback/callback.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,8 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
     StatusEditComponent,
     CategoryEditComponent,
     EmployeeCreateComponent,
-    EmployeeEditComponent    
+    EmployeeEditComponent,
+    CallbackComponent    
   ],
   imports: [
     BrowserModule,
@@ -115,7 +118,8 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
   TravelEditService,
   CategoryEditService,
   EmployeeCreateService,
-  EmployeeEditService
+  EmployeeEditService,
+  AuthService
   ],
   bootstrap: [AppComponent]
 })

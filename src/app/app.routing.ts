@@ -13,6 +13,7 @@ import { StatusCreateComponent } from './status-create/status-create.component';
 import { StatusListComponent } from './status-list/status-list.component';
 import { TravelEditComponent } from './travel-edit/travel-edit.component';
 import { StatusEditComponent } from './status-edit/status-edit.component';
+import { CallbackComponent } from './callback/callback.component';
 
 import { AuthGuard } from './login/auth.guard';
 
@@ -20,74 +21,79 @@ const appRoutes: Routes = [
 	{
 		path: '',
     	component: RouterLayerComponent,
-    	canActivate: [],
+    	canActivate: [AuthGuard],
     	children: [
     		{
 	      		path: '',
 	      		component: MainComponent,
-	      		canActivate: []
-    		},
+	      		canActivate: [AuthGuard]
+    		},        
     		{
 		      path: 'main',
 		      component: MainComponent,
-		      canActivate: []
+		      canActivate: [AuthGuard]
 		    },
-            {
-              path: 'travel-create',
-              component: TravelCreateComponent,
-              canActivate: []
-            },
-            {
-              path: 'travel-edit/:id',
-              component: TravelEditComponent,
-              canActivate: []
-            },
-            {
-              path: 'travel-list',
-              component: TravelListComponent,
-              canActivate: []
-            },
-            {
-              path: 'travel-detail/:id',
-              component: TravelDetailComponent,
-              canActivate: []
-            },
-            {
-              path: 'employee-list',
-              component: EmployeeListComponent,
-              canActivate: []
-            },
-            {
-              path: 'category-create',
-              component: CategoryCreateComponent,
-              canActivate: []
-            },
-            {
-              path: 'category-list',
-              component: CategoryListComponent,
-              canActivate: []
-            },
-            {
-              path: 'status-create',
-              component: StatusCreateComponent,
-              canActivate: []
-            },
-            {
-              path: 'status-edit/:id',
-              component: StatusEditComponent,
-              canActivate: []
-            },
-            {
-              path: 'status-list',
-              component: StatusListComponent,
-              canActivate: []
-            }
+        {
+          path: 'travel-create',
+          component: TravelCreateComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'travel-edit/:id',
+          component: TravelEditComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'travel-list',
+          component: TravelListComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'travel-detail/:id',
+          component: TravelDetailComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'employee-list',
+          component: EmployeeListComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'category-create',
+          component: CategoryCreateComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'category-list',
+          component: CategoryListComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'status-create',
+          component: StatusCreateComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'status-edit/:id',
+          component: StatusEditComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'status-list',
+          component: StatusListComponent,
+          canActivate: [AuthGuard]
+        }
     	]
     },
-	{
+    {
+      path:'callback',
+      component: CallbackComponent     
+    },
+	  {
     	path: 'login',
     	component: LoginComponent
-  	}
+  	},
+    { path: '**', redirectTo: '' }
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService } from '../alert/alert.service';
 import { LoginService } from './login.service';
+import { AuthService } from '../auth/auth.service';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(private route: ActivatedRoute,
         private router: Router,
         private alertService: AlertService,
-        private loginService: LoginService) { 
+        private loginService: LoginService,
+        private authService: AuthService) { 
   	
   	window.addEventListener("resize", this.sizeWindow);
   	this.heightDiv = "0px";
@@ -36,8 +38,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSignIn () {
+    this.authService.login();
   	//let result = this.af.auth.login({ email: this.login.email, password: this.login.password });
-  	let email = this.login.email.trim();
+  	/*
+    let email = this.login.email.trim();
   	let pass = this.login.password.trim();
 
     if (!email && !pass) { return; }
@@ -60,6 +64,8 @@ export class LoginComponent implements OnInit {
           }
           this.loading = false;
     		});
+
+        **/
 
   }
 
