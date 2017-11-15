@@ -45,6 +45,7 @@ export class RouterLayerComponent implements OnInit {
   collNotification:string = "closed";  
   collUser:string = "closed";
   collSettings:string = "closed";
+  profile: any;
 
   constructor(private route: ActivatedRoute, private router: Router, private loginService: LoginService,
     private authService: AuthService) {
@@ -78,6 +79,14 @@ export class RouterLayerComponent implements OnInit {
   		this.statusIcon = false;
       	//this.functions.changeFavicon("error");
   	}
+
+    if (this.authService.userProfile) {
+      this.profile = this.authService.userProfile;      
+    } else {
+      this.authService.getProfile((err, profile) => {
+        this.profile = profile;        
+      });
+    }
   }
 
   logOut() {

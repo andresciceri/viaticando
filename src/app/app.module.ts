@@ -13,6 +13,10 @@ import { ProgressBarModule, DataTableModule,SharedModule,
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './api-local/api-simulate.service';
 
+import { Http, RequestOptions } from '@angular/http';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
+
+
 import { FileUploadModule } from 'ng2-file-upload';
 import { AlertService } from './alert/alert.service';
 import { AuthGuard } from './login/auth.guard';
@@ -53,6 +57,13 @@ import { CategoryEditComponent } from './category-edit/category-edit.component';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { CallbackComponent } from './callback/callback.component';
+
+
+export function authHttpServiceFactory(http: Http, options: RequestOptions) {
+  return new AuthHttp(new AuthConfig({
+    tokenGetter: (() => localStorage.getItem('access_token'))
+  }), http, options);
+}
 
 @NgModule({
   declarations: [
@@ -119,7 +130,12 @@ import { CallbackComponent } from './callback/callback.component';
   CategoryEditService,
   EmployeeCreateService,
   EmployeeEditService,
-  AuthService
+  AuthService,
+  {
+      provide: AuthHttp,
+      useFactory: authHttpServiceFactory,
+      deps: [Http, RequestOptions]
+  }
   ],
   bootstrap: [AppComponent]
 })
