@@ -7,8 +7,6 @@
 	  	<!-- /.login-logo -->
 	  	<div class="login-box-body">
 	  		<form (ngSubmit)="onSignIn()" #loginForm="ngForm" method="post">
-	  		<!--
-	  		
 		      <div class="form-group has-feedback">
 		        <input id="email" type="email" class="form-control" placeholder="Usuario" required [(ngModel)]="login.email" name="email" #email="ngModel" >
 		        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
@@ -23,8 +21,7 @@
 		        </div>
 		        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 		      </div>		      
-		    
-		        -->	
+		    		       
 			    <div class="row">
 					<div class="box-footer">
 					  <button type="submit" class="btn btn-success pull-right" >Ingresar</button>

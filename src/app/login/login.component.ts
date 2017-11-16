@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
 	heightDiv: string;
 	login = {email: "", password: ""};
 	loading = false;
-  	returnUrl: string;
+  returnUrl: string;
 
   constructor(private route: ActivatedRoute,
         private router: Router,
@@ -38,35 +38,26 @@ export class LoginComponent implements OnInit {
   }
 
   onSignIn () {
-    this.authService.login();
-  	//let result = this.af.auth.login({ email: this.login.email, password: this.login.password });
-  	/*
+    
     let email = this.login.email.trim();
-  	let pass = this.login.password.trim();
+    let pass = this.login.password.trim();
 
     if (!email && !pass) { return; }
 
     this.loading = true;
-    this.loginService.login(email, pass)
-  		.then(token => {
-  			this.router.navigate([this.returnUrl]);
-  		},
-      error => {
-          let msg_j = error;
-          let msg = "";
-          if(msg_j.type == 3 && msg_j.url == null){
-            msg = "Se ha encontrado un problema al conectar con el servidor";
-            this.alertService.error(msg);
-          }else if(msg_j.type == 2 && msg_j.url != "") {
-            msg_j = JSON.parse(error._body);
-            msg = msg_j.non_field_errors[0];
-            this.alertService.warning(msg);
-          }
-          this.loading = false;
-    		});
-
-        **/
-
+    this.authService.login(email, pass);
+    /*
+    .then(response => {
+      console.log(response);
+      this.router.navigate([this.returnUrl]);
+    },
+    error => {
+        let msg_j = error;
+        let msg = "";        
+        msg = "Se ha encontrado un problema al conectar con el servidor";
+        this.alertService.error(msg);        
+        this.loading = false;
+      }); **/
   }
 
   sizeWindow () {

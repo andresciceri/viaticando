@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { AUTH_CONFIG } from './auth0-vars';
 import { Router } from '@angular/router';
 import * as auth0 from 'auth0-js';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/map'
 
 @Injectable()
 export class AuthService {
@@ -20,8 +23,27 @@ export class AuthService {
 
   constructor(public router: Router) { }
 
-  public login(): void {
-    this.auth0.authorize();
+  public login(email: string, pwd: string): void {    
+
+    const self = this;
+
+    this.auth0.client.login({
+              realm: 'Username-Password-Authentication',
+              username: email,
+              password: pwd,
+              scope: 'openid profile',
+              audience: AUTH_CONFIG.apiUrl
+            }, function(err, authResult) {
+                if (authResult && authResult.accessToken && authResult.idToken) {
+                  window.location.hash = '';
+                  self.setSession(authResult);
+                  self.router.navigate(['/main']);
+                } else if (err) {
+                  self.router.navigate(['/main']);
+                  console.log(err);
+                  alert(`Error: ${err.error}. Check the console for further details.`);
+                }              
+            });
   }
 
   public handleAuthentication(): void {
@@ -75,7 +97,13 @@ export class AuthService {
       }
       cb(err, profile);
     });
+  }  
+
+  public getAuth0 () : any{
+    return this.auth0;
   }
+
+
 
 
 }

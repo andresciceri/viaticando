@@ -8,6 +8,7 @@ export class Employee {
   organization : Organization;
   organizationId: number;
   isAdmin: boolean;
+  authUserId: string;
   	
 	constructor (){
 		
