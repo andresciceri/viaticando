@@ -6,6 +6,7 @@ import { MainComponent } from './main/main.component';
 import { TravelCreateComponent } from './travel-create/travel-create.component';
 import { TravelListComponent } from './travel-list/travel-list.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { TravelDetailComponent } from './travel-detail/travel-detail.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
 import { CategoryListComponent } from './category-list/category-list.component';
@@ -56,6 +57,11 @@ const appRoutes: Routes = [
         {
           path: 'employee-list',
           component: EmployeeListComponent,
+          canActivate: [AuthGuard]
+        },
+        {
+          path: 'employee-create',
+          component: EmployeeCreateComponent,
           canActivate: [AuthGuard]
         },
         {

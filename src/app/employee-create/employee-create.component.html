@@ -1,3 +1,61 @@
-<p>
-  employee-create works!
-</p>
+<section class="content-header">
+	<h1>
+		<i class="fa fa-users"></i> Crear un nuevo viaje
+	</h1>
+	<ol class="breadcrumb">
+		<li><a routerLink="/"><i class="fa fa-plane"></i> Inicio</a></li>
+		<li><a routerLink="/employee-list">Empleados</a></li>
+		<li class="active">Crear</li>
+	</ol>
+</section>
+
+<section class="content">
+	<div class="col-md-12">
+		<div class="box box-success">
+			<div class="box-header with-border">
+              <h3 class="box-title">Nuevo Empleado</h3>
+            </div>
+            <form class="form-horizontal" (ngSubmit)="onCreateEmployee()" #employeeForm="ngForm" method="post">
+            	<div class="box-body">
+            		<div class="form-group">
+	                	<label for="inputCompany" class="col-sm-2 control-label">Nombre:</label>
+	                	<div class="col-sm-7">
+		                    <input type="text" class="form-control" id="inputDestiny" placeholder="Digite el nombre" [(ngModel)]="employee.firstName" name="firstName" #firstName="ngModel" required>
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputCompany" class="col-sm-2 control-label">Apellido:</label>
+	                	<div class="col-sm-7">
+		                    <input type="text" class="form-control" id="inputDestiny" placeholder="Digite el apellido" [(ngModel)]="employee.lastName" name="lastName" #lastName="ngModel" required>
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputCompany" class="col-sm-2 control-label">Email:</label>
+	                	<div class="col-sm-7">
+		                    <input type="email" class="form-control" id="inputDestiny" placeholder="Digite el email" [(ngModel)]="employee.email" name="email" #email="ngModel" required>
+		                </div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputEmail" class="col-sm-2 control-label">Organización:</label>
+	                	<div class="col-sm-7">
+	                		<select class="form-control" id="status" required [(ngModel)]="employee.organizationId" name="org" #org="ngModel">
+							    <option *ngFor="let org of organizations; let i = index" [value]="org.organizationId">{{org.name}}</option>
+							</select>							
+	                	</div>
+	                </div>
+	                <div class="form-group">
+	                	<label for="inputEmail" class="col-sm-2 control-label">Adminstrador</label>
+	                	<div class="col-sm-7" >
+	                		<p-radioButton name="groupname" label="Si" value="true" [(ngModel)]="employee.isAdmin"></p-radioButton>
+							<p-radioButton name="groupname" label="No" value="false" [(ngModel)]="employee.isAdmin"></p-radioButton>
+	                	</div>
+	                </div>
+            	</div>
+            	<div class="box-footer">
+	                <button type="submit" class="btn btn-success">Crear empleado</button>
+	                <button type="cancel" class="btn btn-default">Cancelar</button>
+	            </div>
+            </form>
+        </div>
+    </div>
+</section>

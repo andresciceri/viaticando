@@ -16,9 +16,16 @@
 	  </a>
 	</li>
 	<li class="treeview" routerLinkActive="active">
-	  <a routerLink="/employee-list">
-	    <i class="fa fa-users"></i> <span>Empleados</span>
-	  </a>
+	  	<a href="#">
+	    	<i class="fa fa-users"></i> <span>Empleados</span>
+	    	<span class="pull-right-container">
+		      <i class="fa fa-angle-left pull-right"></i>
+		    </span>
+	  	</a>
+	  	<ul class="treeview-menu">
+	    	<li class="active"><a routerLink="/employee-create" routerLinkActive="active"><i class="fa fa-plus-square"></i> Crear Nuevo</a></li>
+	    	<li class="active"><a routerLink="/employee-list"><i class="fa fa-users"></i> Listado Empleados</a></li>
+	  	</ul>
 	</li>
 	<li class="treeview" routerLinkActive="active">
 		<a href="#">

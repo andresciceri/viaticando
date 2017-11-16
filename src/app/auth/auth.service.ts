@@ -11,9 +11,10 @@ export class AuthService {
 		domain: AUTH_CONFIG.domain,
 		responseType: 'token id_token',
 		audience: AUTH_CONFIG.apiUrl,
-		redirectUri: AUTH_CONFIG.callbackLocalURL,
-		scope: 'openid profile read:users create:users update:users delete:users'
+		redirectUri: AUTH_CONFIG.callbackURL,
+		scope: 'openid profile '
 	});
+  //read:users create:users update:users delete:users
 
   userProfile: any;
 

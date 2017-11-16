@@ -6,6 +6,8 @@ export class Employee {
   lastName : string;
   email : string;
   organization : Organization;
+  organizationId: number;
+  isAdmin: boolean;
   	
 	constructor (){
 		

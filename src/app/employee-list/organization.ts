@@ -1,5 +1,5 @@
 export class Organization {
-	id: number;
+	organizationId: number;
 	name: string;
 
 	constructor (){}
