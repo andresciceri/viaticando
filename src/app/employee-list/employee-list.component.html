@@ -41,6 +41,11 @@
 					    <p-column field="firstName" header="Nombre" [sortable]="true"></p-column>
 					    <p-column field="lastName" header="Apellido" [sortable]="true"></p-column>
 					    <p-column field="email" header="Correo" [sortable]="true"></p-column>
+					    <p-column field="userId" header="" >
+					    	<ng-template let-dat let-item="rowData" pTemplate="body">
+					            <a [routerLink]="['/travel-list', item[dat.field]]">Ver viajes</a>
+					        </ng-template>	
+					    </p-column>
 					    
 					</p-dataTable>
 	            </div>

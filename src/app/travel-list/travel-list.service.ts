@@ -24,6 +24,15 @@ export class TravelListService {
                .catch(this.handleError);
   }
 
+  getTravelsByUser(id : number) : Promise<Trip[]> {
+    let options = new RequestOptions({ headers : this.headers});
+    const url = `${this.travelsUrl}/user/${id}`;
+    return this.http.get(url,options)
+               .toPromise()
+               .then(response => response.json() as Trip[])
+               .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     //console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);

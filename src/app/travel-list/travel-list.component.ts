@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params, ParamMap} from '@angular/router';
+import 'rxjs/add/operator/switchMap';
 import { TravelListService } from './travel-list.service';
 import { EmployeeListService } from '../employee-list/employee-list.service';
 import { StatusListService } from '../status-list/status-list.service';
@@ -23,7 +24,22 @@ export class TravelListComponent implements OnInit {
   }
 
   ngOnInit() {
-  	this.travelListService.getTravels()
+
+    if(this.route.snapshot.paramMap.has('user')){      
+      this.route.paramMap
+      .switchMap((params: ParamMap) => this.travelListService.getTravelsByUser(+params.get('user')))
+      .subscribe((trips: Trip[]) => {
+          this.travels = trips;
+          for (var i = 0; i < this.travels.length; ++i) {
+            // code...
+            if(this.travels[i].employeeId){
+              this.addEmployee(i,this.travels[i].employeeId);
+              this.addStatus(i,this.travels[i].statusId);
+            }
+          }
+      });
+    }else {
+      this.travelListService.getTravels()
       .then(travels => {
           this.travels = travels;
           for (var i = 0; i < this.travels.length; ++i) {
@@ -46,6 +62,7 @@ export class TravelListComponent implements OnInit {
             this.alertService.warning(msg);
           }
         });
+    }
   }
 
   addEmployee (key: number, id: number){

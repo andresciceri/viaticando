@@ -50,6 +50,11 @@ const appRoutes: Routes = [
           canActivate: [AuthGuard]
         },
         {
+          path: 'travel-list/:user',
+          component: TravelListComponent,
+          canActivate: [AuthGuard]
+        },
+        {
           path: 'travel-detail/:id',
           component: TravelDetailComponent,
           canActivate: [AuthGuard]
