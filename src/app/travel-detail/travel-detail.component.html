@@ -9,7 +9,7 @@
 	</ol>
 </section>
 <section class="content">
-	<div class="row">
+	<div class="row" *ngIf="isAdmin">
 		<div class="navbar-right btn-group top-options-nav">			
 			<button type="button" class="btn btn-sm btn-success" [routerLink]="['/travel-edit', trip.tripId]"><i class="fa fa-plus"></i> Editar</button>
 		</div>

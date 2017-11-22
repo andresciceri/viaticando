@@ -5,6 +5,8 @@ import { TravelDetailService } from './travel-detail.service';
 import { EmployeeListService } from '../employee-list/employee-list.service';
 import { StatusListService } from '../status-list/status-list.service';
 import { AlertService } from '../alert/alert.service';
+import { AuthService } from '../auth/auth.service';
+import {LoginService} from '../login/login.service';
 
 import {Trip} from '../travel-create/trip';
 import {Employee} from '../employee-list/employee';
@@ -24,10 +26,13 @@ export class TravelDetailComponent implements OnInit {
   private expenses: Expense[];
   private imageUrl: any;
   private isVisible : string;
+  private profile: any;
+  private isAdmin: boolean;
 	
   constructor(private travelDetailService: TravelDetailService, private route: ActivatedRoute, 
   	private employeeListService: EmployeeListService, private statusListService: StatusListService,
-      private alertService: AlertService, private router: Router) {   
+      private alertService: AlertService, private router: Router, private authService: AuthService, 
+        private loginService: LoginService) {   
   	this.trip = new Trip();
     this.expenses = [];
     this.employee = new Employee();
@@ -36,6 +41,24 @@ export class TravelDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.authService.userProfile) {
+      this.profile = this.authService.userProfile;
+      let auth = this.profile.sub.split("auth0|");
+      this.loginService.profile(auth[1])
+      .then(prof => {
+        this.isAdmin = prof.isAdmin;
+      });
+    } else {
+      this.authService.getProfile((err, profile) => {
+        this.profile = profile;        
+        let auth = this.profile.sub.split("auth0|");
+        this.loginService.profile(auth[1])
+        .then(prof => {
+          this.isAdmin = prof.isAdmin;
+        });
+      });
+    }
+    
   	this.route.paramMap
     .switchMap((params: ParamMap) => this.travelDetailService.getTravel(+params.get('id')))
     .subscribe((trip: Trip) => {

@@ -8,6 +8,7 @@ import { apipaths } from '../app.apis';
 
 import {User} from './user';
 import {Token} from './token';
+import {Employee} from '../employee-list/employee';
 
 @Injectable()
 export class LoginService {
@@ -18,7 +19,7 @@ export class LoginService {
 	private token: Token;
 	private tokenUrl = apipaths.urlApi + 'api-token-auth/';  // URL to web ap
   	private profileUserUrl = apipaths.urlApi + 'users/current_user/';  // URL to web api
-  	private userUrl = apipaths.urlApi + 'users';  // URL to web api
+  	private userUrl = apipaths.urlApi + 'Users';  // URL to web api
 
   constructor(private http: Http) { 
   	this.loggedIn = !!sessionStorage.getItem('viaticandoToken');
@@ -48,6 +49,15 @@ export class LoginService {
               	})
               .catch(this.handleError);
               
+  }
+
+  profile(id: string) : Promise<Employee> {    
+    let options = new RequestOptions({ headers : this.headers});
+    const url = `${this.userUrl}/authid/${id}`;
+    return this.http.get(url,options)
+               .toPromise()
+               .then(response => response.json() as Employee)
+               .catch(this.handleError);
   }
 
   logout() {
