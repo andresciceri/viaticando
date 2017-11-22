@@ -16,6 +16,10 @@ export class TravelListComponent implements OnInit {
 
 	private travels : Trip[];
   private tripSelected: Trip;
+  private displayDialog: boolean;
+  private start: Date;
+  private end: Date;
+  private nameFile: string;
 
   constructor(private travelListService: TravelListService, private alertService: AlertService,
   	private employeeListService: EmployeeListService, private statusListService: StatusListService, 
@@ -81,6 +85,29 @@ export class TravelListComponent implements OnInit {
 
   onRowSelect(event) {    
     this.router.navigate(['/travel-detail', event.data.tripId]);
+  }
+
+  showDialogToAdd() {
+      this.displayDialog = true;
+    }
+
+  downloadFile() {
+    let s = new Date(this.start).toISOString();
+    let e = new Date(this.end).toISOString();
+    
+    this.travelListService.getTravelsByDate(s,e)
+    .then(file => {
+        const csvUrl = (window.URL || window['webkitURL']).createObjectURL(file);
+        const anchor = document.createElement('a');
+        if(this.nameFile){
+          anchor.download = `${this.nameFile}.csv`;
+        }else {
+          let nf = Date.now();
+          anchor.download = `${nf}.csv`;
+        }        
+        anchor.href = csvUrl;
+        anchor.click();        
+      });
   }
 
 }

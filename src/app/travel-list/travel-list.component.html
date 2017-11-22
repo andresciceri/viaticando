@@ -15,6 +15,7 @@
 		<div class="navbar-right btn-group top-options-nav">
 			<button type="button" class="btn btn-sm btn-default"><i class="fa fa-bars"></i></button>
 			<button type="button" class="btn btn-sm btn-success" routerLink="/travel-create"><i class="fa fa-plus"></i> Nuevo</button>
+			<button type="button" class="btn btn-sm btn-success" (click)="showDialogToAdd()"><i class="fa fa-file-excel-o"></i> Reporte</button>
 		</div>
 	</div>
 	<br>
@@ -56,6 +57,40 @@
 					</p-dataTable>
 	            </div>
 	        </div>
+	        <p-dialog header="Reporte de viajes por fechas" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+			    <div class="ui-grid ui-grid-responsive ui-fluid">
+			        <div>
+			            <div class="col-md-12"><label for="skulist" class="control-label">Rango de fechas</label></div>
+			            <form class="form-horizontal" #reportForm="ngForm" method="post">
+				            <div class="col-md-12">
+				            	<div class="form-group">
+				                	<label for="inputCompany" class="col-sm-2 control-label">Inicial</label>
+				                	<div class="col-sm-3">
+					                    <p-calendar [(ngModel)]="start" [showIcon]="true" name="startDate" #startDate="ngModel"></p-calendar>
+					                </div>
+					                <label for="inputCompany" class="col-sm-2 control-label">Final</label>
+				                	<div class="col-sm-3">
+					                    <p-calendar [(ngModel)]="end" [showIcon]="true" name="endDate" #endDate="ngModel"></p-calendar>
+					                </div>
+				                </div>
+				            </div>
+				            <div class="col-md-12">
+				                <div class="form-group">
+				                	<label for="inputEmail" class="col-sm-2 control-label">Nombre archivo:</label>
+				                	<div class="col-sm-6">
+					                    <input type="text" class="form-control" id="inputBudget" placeholder="Digite el nombre del reporte" [(ngModel)]="nameFile" name="nFile" #nFile="ngModel">
+					                </div>
+				                </div>
+				            </div>
+			        	</form>
+			        </div>
+			    </div>
+			    <p-footer>
+			        <div class="ui-dialog-buttonpane ui-helper-clearfix">			            
+			            <button type="button" pButton icon="fa-check" (click)="downloadFile()" label="Descargar"></button>
+			        </div>
+			    </p-footer>
+			</p-dialog>
 	    </div>
 	</div>
 

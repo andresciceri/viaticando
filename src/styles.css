@@ -201,3 +201,7 @@ body .ui-datalist-content.ui-widget-content .rowPackDataList {
 	margin-top: 5px;
 	cursor: pointer;
 }
+
+.ui-dialog .ui-dialog-content {
+	overflow: visible !important;
+}
