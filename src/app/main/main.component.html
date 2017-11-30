@@ -13,15 +13,15 @@
 <section class="content">
 	<div class="row">
 		<div class="col-lg-6 col-md-12 col-xs-12">
-			<p-chart type="bar" [data]="dataTrips" [options]="optionsTrips"></p-chart>
+			<app-chart-trips-months [data]="dataTrips"></app-chart-trips-months>
 		</div>
 		<div class="col-lg-6 col-md-12 col-xs-12" >
-			<p-chart type="pie" [data]="dataStatus" [options]="optionsStatus"></p-chart>
+			<app-chart-trips-status [data]="dataStatus"></app-chart-trips-status>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-lg-6 col-md-12 col-xs-12">
-			<p-chart type="line" [data]="dataEmployees" [options]="optionsEmployees"></p-chart>
+			<app-chart-top-users [label]="labelsUser" [data]="dataUser"></app-chart-top-users>
 		</div>
 	</div>
 </section>

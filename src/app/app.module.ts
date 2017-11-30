@@ -57,6 +57,9 @@ import { CategoryEditComponent } from './category-edit/category-edit.component';
 import { EmployeeCreateComponent } from './employee-create/employee-create.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { CallbackComponent } from './callback/callback.component';
+import { ChartTopUsersComponent } from './chart-top-users/chart-top-users.component';
+import { ChartTripsMonthsComponent } from './chart-trips-months/chart-trips-months.component';
+import { ChartTripsStatusComponent } from './chart-trips-status/chart-trips-status.component';
 
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
@@ -87,7 +90,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     CategoryEditComponent,
     EmployeeCreateComponent,
     EmployeeEditComponent,
-    CallbackComponent    
+    CallbackComponent,    
+    ChartTopUsersComponent, ChartTripsMonthsComponent, ChartTripsStatusComponent    
   ],
   imports: [
     BrowserModule,

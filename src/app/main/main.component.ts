@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeListService } from '../employee-list/employee-list.service';
+import { TravelListService } from '../travel-list/travel-list.service';
+import { Employee } from '../employee-list/employee';
+import {Trip} from '../travel-create/trip';
 
 @Component({
   selector: 'app-main',
@@ -7,92 +11,66 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-	dataTrips: any;
-	dataStatus: any;
-	dataEmployees: any;
-	optionsTrips: any;
-	optionsStatus: any;
-	optionsEmployees: any;
+    private employees : Employee[];
+    private travels : Trip[];
 
-  constructor() { }
+    tripsUser : any[];
+    labelsUser : string[];
+    dataUser: number[];
+    dataStatus = [0, 0, 0, 0];
+    dataTrips = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	
+
+  constructor(private employeeListService: EmployeeListService, private travelListService: TravelListService) {
+      this.employees = [];
+      this.travels = [];
+      this.tripsUser = [];
+      this.labelsUser = [];
+      this.dataUser = [];
+   }
 
   ngOnInit() {
-  	this.dataTrips = {
-            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-            datasets: [
-                {
-                    label: 'Total Viajes',
-                    backgroundColor: '#42A5F5',
-                    borderColor: '#1E88E5',
-                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 0]
-                }
-            ]
-        }
 
-    this.optionsTrips = {
-            title: {
-                display: true,
-                text: 'Viajes por Mes',
-                fontSize: 16
-            },
-            legend: {
-                position: 'bottom'
+      this.employeeListService.getEmployees()
+          .then(employees => {
+              this.employees = employees;
+              this.employees.map(this.getTripsUser, this);
+          });
+
+      this.travelListService.getTravels()
+      .then(travels => {
+          travels.map(this.tripGroupByMonth, this);
+          for (var i = 0; i < travels.length; ++i) {
+            // code...
+            if(travels[i].statusId === 1){
+              this.dataStatus[0]++;
+            }else if(travels[i].statusId === 2){
+              this.dataStatus[1]++;
+            }else if(travels[i].statusId === 3){
+              this.dataStatus[2]++;
+            }else if(travels[i].statusId === 4){
+              this.dataStatus[3]++;
             }
-        };
 
-    this.dataStatus = {
-        labels: ['Asignados','Aprobados','Cerrados', 'Conciliados'],
-        datasets: [
-            {
-                data: [5, 3, 0, 5],
-                backgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56",
-                    "#4bc0c0"
-                ],
-                hoverBackgroundColor: [
-                    "#FF6384",
-                    "#36A2EB",
-                    "#FFCE56",
-                    "#4bc0c0"
-                ]
-            }]    
-        };
+          }          
+      });  	
+  }
 
-    this.optionsStatus = {
-            title: {
-                display: true,
-                text: 'Estado de viajes',
-                fontSize: 16
-            },
-            legend: {
-                position: 'bottom'
-            }
-        };
+  getTripsUser (user : Employee) : Trip[]{      
+      this.travelListService.getTravelsByUser(user.userId)
+          .then(trips => {
+              this.labelsUser.push(user.firstName);
+              let total = trips.length;
+              this.dataUser.push(total);             
+                            
+          });
+      return [];
+  }
 
-    this.dataEmployees = {
-            labels: ['Empleado 1', 'Empleado 2', 'Empleado 3'],
-            datasets: [
-                {
-                    label: 'Empleados',
-                    data: [3, 5, 2],
-                    fill: false,
-                    borderColor: '#4bc0c0'
-                }
-            ]
-        };
-
-    this.optionsEmployees = {
-            title: {
-                display: true,
-                text: 'Top 5 empleados',
-                fontSize: 16
-            },
-            legend: {
-                position: 'bottom'
-            }
-        };
+  tripGroupByMonth (trip) {    
+    let d = new Date(trip.startDate);
+    let m = d.getMonth();
+    this.dataTrips[m]++;
   }
 
 }
