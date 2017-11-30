@@ -11,5 +11,17 @@
 
 <!-- Main content -->
 <section class="content">
-	
+	<div class="row">
+		<div class="col-lg-6 col-md-12 col-xs-12">
+			<p-chart type="bar" [data]="dataTrips" [options]="optionsTrips"></p-chart>
+		</div>
+		<div class="col-lg-6 col-md-12 col-xs-12" >
+			<p-chart type="pie" [data]="dataStatus" [options]="optionsStatus"></p-chart>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6 col-md-12 col-xs-12">
+			<p-chart type="line" [data]="dataEmployees" [options]="optionsEmployees"></p-chart>
+		</div>
+	</div>
 </section>
